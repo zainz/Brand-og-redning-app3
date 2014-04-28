@@ -4,19 +4,21 @@
  * and open the template in the editor.
  */
 
-package brandogredningapp3;
+package BE;
 
 /**
  *
  * @author Christian
  */
-public class BrandOgRedningApp3 {
-
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) {
-        
+public class Fireman {
+    
+    String cpr;
+    
+    public Fireman(String cpr){
+        this.cpr = cpr;
     }
     
+    public String getCpr(){
+        return cpr;
+    }
 }
