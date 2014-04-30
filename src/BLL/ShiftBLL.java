@@ -21,7 +21,7 @@ public class ShiftBLL extends AbstractDAL {
     
     ShiftDAL shd = new ShiftDAL();
     
-    public ArrayList<Shift> getShifts(Fireman fm) throws SQLException{
-        return shd.getShifts(fm);
+    public ArrayList<Shift> getShifts(Fireman fm, String dato) throws SQLException{
+        return shd.getShifts(fm, dato);
     }
 }

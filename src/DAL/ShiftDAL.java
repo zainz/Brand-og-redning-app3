@@ -19,7 +19,7 @@ import java.util.ArrayList;
  */
 public class ShiftDAL extends AbstractDAL {
     
-    public ArrayList<Shift> getShifts(Fireman fm) throws SQLException{
+    public ArrayList<Shift> getShifts(Fireman fm, String dato) throws SQLException{
         Connection con = null;
         ArrayList<Shift> shifts = new ArrayList();
         
@@ -28,9 +28,9 @@ public class ShiftDAL extends AbstractDAL {
             stmt = con.createStatement();
             ResultSet rs = stmt.executeQuery("SELECT * FROM Løn_rapport "
                     + "JOIN Brandmand ON Løn_rapport.brandmand_FK = Brandmand.cpr_no "
-                    + "WHERE cpr_no = '" + fm.getCpr());
+                    + "WHERE brandman_FK = '" + fm.getCpr() + "' AND date = '" + dato + "'");
             while(rs.next()){
-                String date = rs.getString("dato");
+                String date = rs.getString("date");
                 String firemanName = rs.getString("fornavn");
                 String role = rs.getString("role");
                 String type = rs.getString("type");
